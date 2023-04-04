@@ -286,8 +286,8 @@ class Main {
 
 	public static void printMain() {
 		System.out.println("");
-		System.out.println("\u001B[33m" + "1. View Menu");
-		System.out.println("\u001B[35m" + "2. Make Order");
+		System.out.println("1. View Menu");
+		System.out.println("2. Make Order");
 		System.out.println("3. Exit");
 		System.out.println("");
 	}
