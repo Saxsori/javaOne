@@ -19,7 +19,7 @@ class Main {
 			choice = scanner.nextInt();
 			switch (choice) {
 	        	case 1:
-		        	System.out.println("view menue");
+		        	sortFeatures();
 		        	break ;
 		        case 2:
 					printCategory(null, true);
@@ -39,7 +39,7 @@ class Main {
 	// Search Menu
 	public static String findItem(String category, double price)
 	{
-		if (category.compareTo(category) == 0)
+		if (category.compareTo("Breakfast") == 0)
 		{
 			for (int i = -1; ++i < breakfastPrices.length;)
 			{
@@ -93,7 +93,7 @@ class Main {
 		}
 		double [] copy = new double[1];
 		if (category.compareTo("Breakfast") == 0)
-			copy = Arrays.copyOf(dessertPrices, dessertPrices.length);
+			copy = Arrays.copyOf(breakfastPrices, breakfastPrices.length);
 		else if (category.compareTo("Meal") == 0)
 			copy = Arrays.copyOf(mealPrices, mealPrices.length);
 		else if (category.compareTo("Dessert") == 0)
@@ -114,15 +114,10 @@ class Main {
 	public static void sortFeatures()
 	{
 		Scanner scanner = new Scanner(System.in);
-	
-		System.out.println("Choose which food category you are looking for");
-		System.out.println("1. Breakfast");
-		System.out.println("2. Meal");
-		System.out.println("3. Dessert");
+
+		printCategoryChoice();
 		int category = scanner.nextInt();
-		System.out.println("1. Show Normal");
-		System.out.println("2. Show High/Low Price");
-		System.out.println("3. Show Low/High Price");
+		printSortChoice();
 		int sort = scanner.nextInt();
 		switch (category) {
 			case 1:
@@ -251,7 +246,10 @@ class Main {
 
 	}
 
+	
+	// Menu printing functions
 	public static void printCategory(String category, boolean isAll){
+		System.out.println("");
 		if (category.compareTo("Breakfast") == 0 || isAll)
 		{
 			for (int i = -1; ++i < breakfastItems.length;)
@@ -292,13 +290,27 @@ class Main {
 		System.out.println("3. Exit");
 		System.out.println("");
 	}
-	
+
 	public static void printOperations() {
 		System.out.println("");
 		System.out.println("1. Add item");
 		System.out.println("2. Remove item");
 		System.out.println("3. Checkout");
 		System.out.println("4. Cancel Order");
+		System.out.print("Enter your choice: ");	
+	}
+	public static void printCategoryChoice() {
+		System.out.println("");
+		System.out.println("1. Breakfast");
+		System.out.println("2. Meal");
+		System.out.println("3. Dessert");
+		System.out.print("Enter your choice: ");	
+	}
+	public static void printSortChoice() {
+		System.out.println("");
+		System.out.println("1. Show Normal");
+		System.out.println("2. Show High/Low Price");
+		System.out.println("3. Show Low/High Price");
 		System.out.print("Enter your choice: ");	
 	}
 }
