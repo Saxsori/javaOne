@@ -1,9 +1,7 @@
-version: '3.7'
+version: '3'
 services:
   javaone:
-    container_name: javaone
     build:
       context: .
       dockerfile: Dockerfile
-    volumes:
-      - ./App:/App
+    image: java-javaone

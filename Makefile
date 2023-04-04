@@ -1,7 +1,14 @@
-all: 
-	docker compose up 
-clean: 
-	docker compose down && rm ./App/Main.class
-fclean: clean
-		docker rm -f $(docker ps -a -q)
-re: clean all
+IMAGE_NAME = java-javone
+
+.PHONY: all build run clean
+
+all: build run
+
+build:
+	docker build -t $(IMAGE_NAME) .
+
+run:
+	docker run -it $(IMAGE_NAME)
+
+clean:
+	docker rmi $(IMAGE_NAME)
