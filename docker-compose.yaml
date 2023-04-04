@@ -1,7 +1,0 @@
-version: '3'
-services:
-  javaone:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: java-javaone
