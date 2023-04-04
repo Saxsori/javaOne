@@ -250,18 +250,19 @@ class Main {
 	// Menu printing functions
 	public static void printCategory(String category, boolean isAll){
 		System.out.println("");
-		if (category.compareTo("Breakfast") == 0 || isAll)
+		if (category != null && category.compareTo("Breakfast") == 0 || isAll)
 		{
+			System.out.println("Breakfast Menu");
 			for (int i = -1; ++i < breakfastItems.length;)
 				System.out.println(breakfastItems[i] + " " + breakfastPrices[i] + "AED");
 		}
-		else if (category.compareTo("Meal") == 0 || isAll)
+		else if (category != null && category.compareTo("Meal") == 0 || isAll)
 		{
 			System.out.println("Meal Menu");
 			for (int i = -1; ++i < mealItems.length;)
 				System.out.println(mealItems[i] + " " + mealPrices[i] + "AED");
 		}
-		else if (category.compareTo("Dessert") == 0 || isAll)
+		if (category != null && category.compareTo("Dessert") == 0 || isAll)
 		{
 			System.out.println("Dessert Menu");
 			for (int i = -1; ++i < dessertItems.length;)
@@ -285,8 +286,8 @@ class Main {
 
 	public static void printMain() {
 		System.out.println("");
-		System.out.println("1. View Menu");
-		System.out.println("2. Make Order");
+		System.out.println("\u001B[33m" + "1. View Menu");
+		System.out.println("\u001B[35m" + "2. Make Order");
 		System.out.println("3. Exit");
 		System.out.println("");
 	}
