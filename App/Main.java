@@ -8,6 +8,15 @@ class Main {
 	static double[] mealPrices = {3.99, 7.99, 2.99, 5.99, 4.99, 6.99, 8.99};
 	static String[] dessertItems = {"Ice Cream", "Cake", "Brownie", "Cheesecake"};
 	static double[] dessertPrices = {4.99, 6.99, 3.99, 7.99};
+
+	/*
+	 * 
+	 * Main function where evrything starts
+	 * First it prints the main menu
+	 * Then it takes the user choice
+	 * Then it calls the function that the user wants
+	 * Also it has a loop that keeps the program running until the user wants to exit
+	 */
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		int choice = 0;
@@ -36,7 +45,10 @@ class Main {
 	}
 	
 
-	// Search Menu
+	/*
+	 * This function is used to find the item that the user wants
+	 * using the category and the price
+	 */
 	public static String findItem(String category, double price)
 	{
 		if (category.compareTo("Breakfast") == 0)
@@ -66,6 +78,9 @@ class Main {
 		return "Not Found";
 	}
 
+	/*
+	 * This function is used to find the price of the item
+	 */
 	public static double findPrice(String element)
 	{
 		for (int i = -1; ++i < breakfastItems.length;) {
@@ -84,6 +99,11 @@ class Main {
 	}
 
 	// Sort Menu
+	/*
+	 * This function used to sort the menu depending on the category and 
+	 * the filter that the user wants
+	 * and the sort is used here to implement the filter
+	 */
 	public static void sortMenu(String category, String sort)
 	{
 		if (sort.compareTo("Normal") == 0)
@@ -99,18 +119,26 @@ class Main {
 		else if (category.compareTo("Dessert") == 0)
 			copy = Arrays.copyOf(dessertPrices, dessertPrices.length);
 		Arrays.sort(copy);
+		System.out.println("");
 		if (sort.compareTo("High/Low") == 0)
 		{
+			System.out.println("High/Low: ");
 			for (int i = copy.length; --i >= 0;)
 				System.out.println(findItem(category, copy[i]) + " " + copy[i] + "AED");
 		}
 		else if (sort.compareTo("Low/High") == 0)
 		{
+			System.out.println("Low/High: ");
 			for (int i = -1; ++i < copy.length;)
 				System.out.println(findItem(category, copy[i]) + " " + copy[i] + "AED");
 		}
 	}
 
+	/*
+	 * This function mainly used to print the main menu Depending
+	 * on the filter that the user wants
+	 * here where the sort function is called
+	 */
 	public static void sortFeatures()
 	{
 		Scanner scanner = new Scanner(System.in);
@@ -153,6 +181,14 @@ class Main {
 
 
 	// Menu Operations
+	/*
+	 * This Function is used to make the order
+	 * and to print the total price
+	 * and to print the order
+	 * and to remove an item from the order
+	 * and to add an item to the order
+	 * and to checkout
+	 */
 	public static void makeOrder()
 	{
 		Scanner scanner = new Scanner(System.in);
@@ -170,6 +206,11 @@ class Main {
 					System.out.println("- What is the name of the Food you want to Remove ?");
 				else if (choice == 3)
 				{
+					if (order.length == 1 && order[0] == null)
+					{
+						System.out.println("Your Order is Empty");
+						break ;
+					}
 					System.out.println("The total price is " + checkout(order) + "AED");
 					System.out.println("Thank you for your order");
 					return ;
@@ -186,7 +227,7 @@ class Main {
 					return;
 				}
 				System.out.println("- Type <Done> without <> when you're done !");
-				String userAnswer = scanner.nextLine();
+				String userAnswer = scanner.next();
 				if (userAnswer.compareTo("Done") == 0)
 					break ;
 				else if (findPrice(userAnswer) == 0.0)
@@ -209,11 +250,20 @@ class Main {
 		}
 	}
 
+	/*
+	 * this function is used to remove an item from the order
+	 * and to return the new order
+	 */
 	public static String[] removeItem(String []order, String element)
 	{
 		String [] newOrder = new String [order.length - 1];
 		int i = -1;
 		int j = -1;
+		if (order.length == 1 && order[0] == null)
+		{
+			System.out.println("No thing to remove");
+			return (order);
+		}
 		while (++i < order.length)
 		{
 			if (order[i].compareTo(element) != 0)
@@ -222,6 +272,10 @@ class Main {
 		return (newOrder);
 	}
 
+	/*
+	 * This function is used to checkout and to return the total price
+	 * of the order
+	 */
 	public static double checkout(String [] items)
 	{
 		double total = 0.0;
@@ -230,6 +284,10 @@ class Main {
 		return (total);
 	}
 
+	/*
+	 * This function is used to Add an item to the order
+	 * and to return the new order based on the old order
+	 */
 	public static String[] addItem(String []order, String newElement)
 	{
 		String [] newOrder = new String [order.length + 1];
@@ -246,8 +304,11 @@ class Main {
 
 	}
 
-	
 	// Menu printing functions
+	/*
+	 * This function is used to print the order based 
+	 * on the category 
+	 */
 	public static void printCategory(String category, boolean isAll){
 		System.out.println("");
 		if (category != null && category.compareTo("Breakfast") == 0 || isAll)
@@ -270,6 +331,9 @@ class Main {
 		}
 	}
 
+	/*
+	 * This function is used to print the order
+	 */
 	public static void printOrder(String [] items)
 	{
 	    System.out.println("");
@@ -298,6 +362,7 @@ class Main {
 		System.out.println("2. Remove item");
 		System.out.println("3. Checkout");
 		System.out.println("4. Cancel Order");
+		System.out.println("");
 		System.out.print("Enter your choice: ");	
 	}
 	public static void printCategoryChoice() {
@@ -305,6 +370,7 @@ class Main {
 		System.out.println("1. Breakfast");
 		System.out.println("2. Meal");
 		System.out.println("3. Dessert");
+		System.out.println("");
 		System.out.print("Enter your choice: ");	
 	}
 	public static void printSortChoice() {
@@ -312,6 +378,7 @@ class Main {
 		System.out.println("1. Show Normal");
 		System.out.println("2. Show High/Low Price");
 		System.out.println("3. Show Low/High Price");
-		System.out.print("Enter your choice: ");	
+		System.out.println("");
+		System.out.print("Enter your choice: ");
 	}
 }
