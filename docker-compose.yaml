@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  javaone:
+    build: ./
+    container_name: javaone
+    restart: always
+    volumes:
+      - App:/src
+
+volumes:
+  App:
+    name: App
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ./src

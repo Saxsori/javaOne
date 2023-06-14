@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.Arrays;
+// import ./Print.java;
 
 class Main {
 	static String[] breakfastItems = {"Omelette", "Pancakes", "Waffles", "French Toast"};
@@ -8,6 +9,7 @@ class Main {
 	static double[] mealPrices = {3.99, 7.99, 2.99, 5.99, 4.99, 6.99, 8.99};
 	static String[] dessertItems = {"Ice Cream", "Cake", "Brownie", "Cheesecake"};
 	static double[] dessertPrices = {4.99, 6.99, 3.99, 7.99};
+	static MenuPrints outs;
 
 	/*
 	 * 
@@ -23,7 +25,7 @@ class Main {
 		while (true) {
 			if (choice == 3)
 			break;
-			printMain();
+			outs.printMain();
 			System.out.print("Enter your choice: ");
 			choice = scanner.nextInt();
 			switch (choice) {
@@ -143,9 +145,9 @@ class Main {
 	{
 		Scanner scanner = new Scanner(System.in);
 
-		printCategoryChoice();
+		outs.printCategoryChoice();
 		int category = scanner.nextInt();
-		printSortChoice();
+		outs.printSortChoice();
 		int sort = scanner.nextInt();
 		switch (category) {
 			case 1:
@@ -195,7 +197,7 @@ class Main {
 		int choice = 0;
 	    String order [] = new String[1];
 	    while (true) {
-			printOperations();
+			outs.printOperations();
 		    choice = scanner.nextInt();
 			while (true)
 			{
@@ -346,39 +348,5 @@ class Main {
 	    for (int i = -1; ++i < items.length;)
 	    	System.out.println(items[i]);
 	    System.out.println("");
-	}
-
-	public static void printMain() {
-		System.out.println("");
-		System.out.println("1. View Menu");
-		System.out.println("2. Make Order");
-		System.out.println("3. Exit");
-		System.out.println("");
-	}
-
-	public static void printOperations() {
-		System.out.println("");
-		System.out.println("1. Add item");
-		System.out.println("2. Remove item");
-		System.out.println("3. Checkout");
-		System.out.println("4. Cancel Order");
-		System.out.println("");
-		System.out.print("Enter your choice: ");	
-	}
-	public static void printCategoryChoice() {
-		System.out.println("");
-		System.out.println("1. Breakfast");
-		System.out.println("2. Meal");
-		System.out.println("3. Dessert");
-		System.out.println("");
-		System.out.print("Enter your choice: ");	
-	}
-	public static void printSortChoice() {
-		System.out.println("");
-		System.out.println("1. Show Normal");
-		System.out.println("2. Show High/Low Price");
-		System.out.println("3. Show Low/High Price");
-		System.out.println("");
-		System.out.print("Enter your choice: ");
 	}
 }

@@ -1,5 +1,9 @@
-FROM openjdk:8-jdk-alpine
-WORKDIR /App
-COPY ./App /App
-RUN javac Main.java
-CMD ["sh", "-c", "java Main"]
+FROM alpine:latest
+
+RUN apk update && apk add openjdk8
+
+RUN apk update && apk add make
+
+RUN mkdir -p /src
+
+ENTRYPOINT ["tail", "-f"]
