@@ -41,6 +41,7 @@ $(OUT_DIR):
 $(JAR_FILE): $(MANIFEST_FILE) $(CLASSES)
 	$(JAR) cfm $(JAR_FILE) $(MANIFEST_FILE) -C $(OUT_DIR) .
 
+
 # ? Changing the default behavior of the implicit rule for compiling Java source files to class files
 # ? and Redefine it to customize it to achive this desired behavior:
 # ? 1- Placing the class files in a different directory
