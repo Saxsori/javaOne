@@ -6,8 +6,10 @@ RUN apk update && apk add make
 
 RUN mkdir -p /src
 
-COPY ./src /src
+# COPY ./src /src
 
 WORKDIR /src
 
-ENTRYPOINT ["make", "run"]
+# RUN ["make", "run"]
+
+ENTRYPOINT ["tail", "-f", "/dev/null"]

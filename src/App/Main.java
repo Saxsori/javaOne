@@ -9,8 +9,18 @@ class Main {
 	static double[] mealPrices = {3.99, 7.99, 2.99, 5.99, 4.99, 6.99, 8.99};
 	static String[] dessertItems = {"Ice Cream", "Cake", "Brownie", "Cheesecake"};
 	static double[] dessertPrices = {4.99, 6.99, 3.99, 7.99};
-	static MenuPrints outs;
+	static Menu menu;
 
+	// enum DayOfWeek {
+    //     MONDAY,
+    //     TUESDAY,
+    //     WEDNESDAY,
+    //     THURSDAY,
+    //     FRIDAY,
+    //     SATURDAY,
+    //     SUNDAY
+    // }
+	
 	/*
 	 * 
 	 * Main function where evrything starts
@@ -25,8 +35,8 @@ class Main {
 		while (true) {
 			if (choice == 3)
 			break;
-			outs.printMain();
-			System.out.print("Enter your choice: ");
+			menu.out.printMain();
+			System.out.print("BOO Enter your choice: ");
 			choice = scanner.nextInt();
 			switch (choice) {
 	        	case 1:
@@ -145,9 +155,9 @@ class Main {
 	{
 		Scanner scanner = new Scanner(System.in);
 
-		outs.printCategoryChoice();
+		menu.out.printCategoryChoice();
 		int category = scanner.nextInt();
-		outs.printSortChoice();
+		menu.out.printSortChoice();
 		int sort = scanner.nextInt();
 		switch (category) {
 			case 1:
@@ -197,7 +207,7 @@ class Main {
 		int choice = 0;
 	    String order [] = new String[1];
 	    while (true) {
-			outs.printOperations();
+			menu.out.printOperations();
 		    choice = scanner.nextInt();
 			while (true)
 			{
@@ -247,7 +257,7 @@ class Main {
 						System.out.println("---> Element have been removed successfuly");
 					}
 				}
-				printOrder(order);
+				menu.out.printOrder(order);
 			}
 		}
 	}
@@ -255,7 +265,7 @@ class Main {
 	/*
 	 * this function is used to remove an item from the order
 	 * and to return the new order
-	 */
+	 */				
 	public static String[] removeItem(String []order, String element)
 	{
 		String [] newOrder = new String [order.length - 1];
@@ -333,20 +343,5 @@ class Main {
 		}
 	}
 
-	/*
-	 * This function is used to print the order
-	 */
-	public static void printOrder(String [] items)
-	{
-	    System.out.println("");
-	    if (items.length == 1 && items[0] == null)
-	    {
-	    	System.out.println("No order list yet");
-	    	return ;
-	    }
-	    System.out.println("The Order now is ");
-	    for (int i = -1; ++i < items.length;)
-	    	System.out.println(items[i]);
-	    System.out.println("");
-	}
+
 }
