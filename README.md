@@ -17,23 +17,25 @@ This strictness in adhering to OOP principles is essential in the context of Jav
 and polymorphism. Each file in Java typically holds a different class, contributing to a modular and maintainable codebase.
 
 ### Simple Compile
-To compile a Java program, we use the ``javac`` command followed by the name of the Java source file. ``javac MyProgram.java``, the command compiles the Java source code into bytecode, represented by the ``.class`` files.
+To compile a Java program, we use the ``javac`` command followed by the name of the Java source file. ``javac Main.java``, the command compiles the Java source code into bytecode, represented by the ``.class`` files. i.e. ``Main.class``.
 
-After compilation, we can execute the program using the java command followed by the name of the class containing the main method. For instance, if our class with the main method is called Main, we would run ``java Main`` to execute the program.
+After compilation, we can execute the program using the ``java`` command followed by the name of the class containing the main method. For instance, if our class with the main method is called Main, we would run ``java Main`` to execute the program.
 
 And that's it. Can't be further complicated, but now ..
 
 ### Large Project Compile
 Working on larger Java projects with multiple files, it's common to create a JAR (Java ARchive) file. Think of it as a cool bundle that holds all our compiled ``.class`` files and other essential resources together in one place. It's like packing everything up for convenience!
 
-To create the JAR file named myproject.jar and include all the .class files in the current directory, we can run the following command: `` jar cfm myproject.jar Manifest.txt -C bin . ``
+To create the JAR file named myproject.jar and include all the ``.class`` files in the current directory, we can run the following command: `` jar cfm myproject.jar Manifest.txt -C bin . ``
 
-The ``jar`` command is our go-to tool for creating JAR files. The ``c`` option tells it to create a fresh new archive. The ``f`` option lets us specify the name of the JAR file we want to create. In this case, it's called ``myproject.jar``. The ``m`` option is exciting! It points to a special file called the manifest file. This file, named Manifest.txt in this command line. The -C option is like a teleporter. It takes you to the bin directory, where your compiled files reside.
+The ``jar`` command is our go-to tool for creating JAR files. The ``c`` option tells it to create a fresh new archive. The ``f`` option lets us specify the name of the JAR file we want to create. In this case, it's called ``myproject.jar``. The ``m`` option is exciting! It points to a special file called the manifest file. This file is named ``Manifest.txt`` in this command line. The ``-C`` option is like a teleporter. It takes you to the bin directory, where your compiled files reside.
 
 By the way, let's talk about the manifest file! It's an important part of your JAR file. Think of it as an ID card that introduces your Java application. It contains vital information, like which class holds the main function, which is the entry of the program. In this case, the content of a Manifest.txt file should be: ``Main-Class: Main``. This ensures that when we run the JAR file, the correct class will be launched as the entry point of our application.
 
 ### Java Virtual Machine (JVM)
-Now Let's Go a bit deeper, As has been mentioned before, in simple cases, like standalone programs, java does have a two-step compilation process to run your code. First, the ``javac`` command compiles your Java source code into bytecode, a low-level representation of the program. Then comes the exciting part! The Java Virtual Machine (JVM) enters the stage when you use the ``java`` command. The JVM is like a virtual computer that executes your bytecode, translating it into machine-specific instructions on the fly. This allows Java programs to be platform-independent, running on any system with a compatible JVM. 
+Now Let's Go a bit deeper, As has been mentioned before, in simple cases, like standalone programs, java does have a two-step compilation process to run your code. 
+
+First, the ``javac`` command compiles your Java source code into bytecode, a low-level representation of the program. Then comes the exciting part! The Java Virtual Machine (JVM) enters the stage when you use the ``java`` command. The JVM is like a virtual computer that executes your bytecode, translating it into machine-specific instructions on the fly. This allows Java programs to be platform-independent, running on any system with a compatible JVM. 
 
 Other programming languages, such as Kotlin, Scala, and Groovy, also rely on virtual machines for code execution. The purpose of using a virtual machine is to provide a layer of abstraction, enabling developers to write code once and run it on different platforms without worrying about low-level details. 
 
