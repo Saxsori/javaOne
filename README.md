@@ -42,18 +42,25 @@ Now Let's Go a bit deeper, As has been mentioned before, in simple cases, like s
 
 First, the ``javac`` command compiles our Java source code into bytecode, a low-level representation of the program. Then comes the exciting part! The Java Virtual Machine (JVM) enters the stage when we use the ``java`` command. The JVM is like a virtual computer that executes our bytecode, translating it into machine-specific instructions on the fly. This allows Java programs to be platform-independent, running on any system with a compatible JVM. 
 
-Other programming languages, such as Kotlin, Scala, and Groovy, also rely on virtual machines for code execution. The purpose of using a virtual machine is to provide a layer of abstraction, enabling developers to write code once and run it on different platforms without worrying about low-level details. 
+And there are actually a few reasons behind using the bytecode step, Firstly, By compiling Java source code into bytecode, Java achieves its famous 'write once, run anywhere' capability. The bytecode is not tied to any specific hardware or operating system, making it portable across different platforms. 
 
-Interestingly, languages like C don't need a virtual machine because they are compiled directly into machine code specific to the target system, skipping the intermediate bytecode step. So, the JVM adds a dash of magic to Java by bridging the gap between our code and the underlying hardware, making Java a versatile and widely used language.
-
-And there are actually a few reasons behind using the bytecode step, Firstly, bytecode serves as an intermediate representation of the code that is platform-independent. By compiling Java source code into bytecode, Java achieves its famous 'write once, run anywhere' capability. The bytecode is not tied to any specific hardware or operating system, making it portable across different platforms. 
-
-Secondly, the bytecode acts as a layer of abstraction between the high-level Java code and the underlying hardware. It allows for various optimizations and enhancements to be applied during runtime by the JVM. These optimizations can improve performance, and memory management, like a built-in garbage collector, and avoid other security vulnerabilities as well. 
+Secondly, the bytecode acts as a layer of abstraction between the high-level Java code and the underlying hardware. It allows for various optimizations and enhancements to be applied during runtime by the JVM, like for instance, improving the performance and managing the memory, like a built-in garbage collector, and avoiding other security vulnerabilities as well!
 
 However, some programming languages like C can skip the intermediate bytecode step because they are compiled directly into machine code specific to the target system. This direct compilation allows C to achieve closer interaction with the underlying hardware, making it suitable for low-level programming tasks. Java's bytecode step, on the other hand, strikes a balance between platform independence and runtime optimizations, making it a popular choice for building robust and portable applications.
 
-## Code Structure
+By the way, did you notice? It's called JVM, Java Virtual Machine, VIRTUAL MACHINE! Who would have thought, right? It's all about  ``Write once, run anywhere``, and no need to know more... But one second, How does it create a virtual machine to run code? It sounds crazy, doesn't it? Well, it's not about creating a whole new virtual operating system! Like what I thought :) 
 
+The reason behind the name was that, as has been mentioned before it acts as an abstraction layer between Java programs and hardware/operating systems.
+1- Hardware Abstraction:
+- JVM shields Java programs from hardware specifics.
+- Provides a consistent interface for Java programs to run on different hardware platforms.
+- Enables execution on any system with a compatible JVM, regardless of specific hardware configurations.
+2- Operating System Abstraction:
+- JVM abstracts operating system details.
+- Provides a uniform interface for Java programs to interact with the OS.
+- Allows Java programs to be developed and run on different operating systems without modifications.
+
+The name kinda makes sense now, JVM takes care of translating Java bytecode to appropriate instructions and system calls for the underlying hardware and OS, which makes ``Write once, run anywhere`` real. 
 
 
 ## OOP Concepts Used
