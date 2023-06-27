@@ -50,11 +50,13 @@ However, some programming languages like C can skip the intermediate bytecode st
 
 By the way, did you notice? It's called JVM, Java Virtual Machine, VIRTUAL MACHINE! Who would have thought, right? It's all about  ``Write once, run anywhere``, and no need to know more... But one second, How does it create a virtual machine to run code? It sounds crazy, doesn't it? Well, it's not about creating a whole new virtual operating system! Like what I thought :) 
 
-The reason behind the name was that, as has been mentioned before it acts as an abstraction layer between Java programs and hardware/operating systems.
+The reason behind the name was that, as has been mentioned before it acts as an abstraction layer between Java programs and hardware/operating systems, lets breaks that down:
+
 1- Hardware Abstraction:
 - JVM shields Java programs from hardware specifics.
 - Provides a consistent interface for Java programs to run on different hardware platforms.
 - Enables execution on any system with a compatible JVM, regardless of specific hardware configurations.
+
 2- Operating System Abstraction:
 - JVM abstracts operating system details.
 - Provides a uniform interface for Java programs to interact with the OS.
