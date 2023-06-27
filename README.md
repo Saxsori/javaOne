@@ -18,7 +18,7 @@ and polymorphism. Each file in Java typically holds a different class, like even
 
 Now you may wonder, Why this strict OOP style does even matter, mixing both procedural and object-oriented styles will look great like C++? 
 
-Well, Java's commitment to OOP ensures code organization, modularity, and maintainability. Making it easier to update, test and maintain tho classes for big applications. Plus, this strictness fuels advanced concepts like frameworks, libraries, and dependency injection, helping you build flexible, scalable, and robust applications.
+Well, Java's commitment to OOP ensures code organization, modularity, and maintainability. Making it easier to update, test and maintain the classes for big applications. Plus, this strictness fuels advanced concepts like frameworks, libraries, and dependency injection, helping you build flexible, scalable, and robust applications.
 
 
 ### Simple Compile
@@ -42,7 +42,9 @@ Now Let's Go a bit deeper, As has been mentioned before, in simple cases, like s
 
 First, the ``javac`` command compiles our Java source code into bytecode, a low-level representation of the program. Then comes the exciting part! The Java Virtual Machine (JVM) enters the stage when we use the ``java`` command. The JVM is like a virtual computer that executes our bytecode, translating it into machine-specific instructions on the fly. This allows Java programs to be platform-independent, running on any system with a compatible JVM. 
 
-And there are actually a few reasons behind using the bytecode step, Firstly, By compiling Java source code into bytecode, Java achieves its famous 'write once, run anywhere' capability. The bytecode is not tied to any specific hardware or operating system, making it portable across different platforms. 
+And there are actually a few reasons behind using the bytecode step, 
+
+Firstly, By compiling Java source code into bytecode, Java achieves its famous 'write once, run anywhere' capability. The bytecode is not tied to any specific hardware or operating system, making it portable across different platforms. 
 
 Secondly, the bytecode acts as a layer of abstraction between the high-level Java code and the underlying hardware. It allows for various optimizations and enhancements to be applied during runtime by the JVM, like for instance, improving the performance and managing the memory, like a built-in garbage collector, and avoiding other security vulnerabilities as well!
 
