@@ -1,15 +1,21 @@
 FROM alpine:latest
 
+ARG JRUN
+
+ENV JRUN=$JRUN
+
 RUN apk update && apk add openjdk8
 
 RUN apk update && apk add make
 
-RUN mkdir -p /src
+RUN mkdir -p /JavaOne
 
-# COPY ./src /src
+COPY ./src /JavaOne
 
-WORKDIR /src
+WORKDIR /
 
-# RUN ["make", "run"]
+COPY ./start.sh ./start.sh
 
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+RUN chmod +x start.sh
+
+ENTRYPOINT ["./start.sh"]
