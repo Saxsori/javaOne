@@ -1,4 +1,4 @@
-public class MenuPrints {
+public class MenuPrints implements Global {
 
 	public static void printMain() {
 		System.out.println("\n1. View Menu");
@@ -43,5 +43,32 @@ public class MenuPrints {
 	    for (int i = -1; ++i < items.length;)
 	    	System.out.println(items[i]);
 	    System.out.println("");
+	}
+
+
+	/*
+	 * This function is used to print the order based 
+	 * on the category 
+	 */
+	public static void printCategory(Option category){
+		System.out.println("");
+		if (category == Option.BREAKFAST || category == Option.ALL)
+		{
+			System.out.println("Breakfast Menu");
+			for (int i = -1; ++i < breakfastItems.length;)
+				System.out.println(breakfastItems[i] + " " + breakfastPrices[i] + "AED");
+		}
+		else if (category == Option.MEAL || category == Option.ALL)
+		{
+			System.out.println("Meal Menu");
+			for (int i = -1; ++i < mealItems.length;)
+				System.out.println(mealItems[i] + " " + mealPrices[i] + "AED");
+		}
+		else if (category == Option.DESSERT || category == Option.ALL)
+		{
+			System.out.println("Dessert Menu");
+			for (int i = -1; ++i < dessertItems.length;)
+				System.out.println(dessertItems[i] + " " + dessertPrices[i] + "AED");
+		}
 	}
 }
