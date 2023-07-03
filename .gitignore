@@ -4,3 +4,5 @@ manifest.txt
 
 .DS_Store
 .vscode/
+
+./src/bin/

@@ -62,3 +62,4 @@ run: $(JAR_FILE)
 clean:
 	rm -rf $(OUT_DIR) $(JAR_FILE) $(MANIFEST_FILE)
 
+re : clean run

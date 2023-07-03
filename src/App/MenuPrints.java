@@ -1,3 +1,5 @@
+import java.util.Map;
+
 public class MenuPrints implements Global {
 
 	public static void printMain() {
@@ -31,17 +33,17 @@ public class MenuPrints implements Global {
 	/*
 	 * This function is used to print the order
 	 */
-	public static void printOrder(String [] items)
+	public static void printOrder(Map<String, Double> order)
 	{
 	    System.out.println("");
-	    if (items.length == 1 && items[0] == null)
+	    if (order.isEmpty())
 	    {
 	    	System.out.println("No order list yet");
 	    	return ;
 	    }
 	    System.out.println("The Order now is ");
-	    for (int i = -1; ++i < items.length;)
-	    	System.out.println(items[i]);
+		for (Map.Entry<String, Double> entry : order.entrySet())
+			System.out.println(entry.getKey() + " " + entry.getValue() + " AED");
 	    System.out.println("");
 	}
 
@@ -52,23 +54,18 @@ public class MenuPrints implements Global {
 	 */
 	public static void printCategory(Option category){
 		System.out.println("");
-		if (category == Option.BREAKFAST || category == Option.ALL)
+		if (category == Option.ALL)
 		{
-			System.out.println("Breakfast Menu");
-			for (int i = -1; ++i < breakfastItems.length;)
-				System.out.println(breakfastItems[i] + " " + breakfastPrices[i] + "AED");
+			for (Map.Entry<Option, Map<String, Double>> entry : Menu.entrySet())
+			{
+				System.out.println("\n" + entry.getKey().toString().substring(0, 1) + entry.getKey().toString().substring(1).toLowerCase() + " Menu: ");
+				for (Map.Entry<String, Double> entry2 : entry.getValue().entrySet())
+					System.out.println(entry2.getKey() + " " + entry2.getValue() + " AED");
+			}
+			return ;
 		}
-		else if (category == Option.MEAL || category == Option.ALL)
-		{
-			System.out.println("Meal Menu");
-			for (int i = -1; ++i < mealItems.length;)
-				System.out.println(mealItems[i] + " " + mealPrices[i] + "AED");
-		}
-		else if (category == Option.DESSERT || category == Option.ALL)
-		{
-			System.out.println("Dessert Menu");
-			for (int i = -1; ++i < dessertItems.length;)
-				System.out.println(dessertItems[i] + " " + dessertPrices[i] + "AED");
-		}
+		System.out.println(category.toString().substring(0, 1) + category.toString().substring(1).toLowerCase() + " Menu1: ");
+		for (Map.Entry<String, Double> entry : Menu.get(category).entrySet())
+			System.out.println(entry.getKey() + " " + entry.getValue() + "AED");
 	}
 }

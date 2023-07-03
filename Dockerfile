@@ -4,7 +4,7 @@ ARG JRUN
 
 ENV JRUN=$JRUN
 
-RUN apk update && apk add openjdk8
+RUN apk update && apk add openjdk11
 
 RUN apk update && apk add make
 
