@@ -29,7 +29,7 @@ class Main implements Global {
 		        	break ;
 		        case 2:
 					menu.out.printCategory(Option.ALL);
-		        	// menu.makeOrder();
+		        	menu.makeOrder();
 		        	break ;
 		        case 3:
 	          		System.out.println("Bye !");

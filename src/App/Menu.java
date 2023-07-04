@@ -1,28 +1,15 @@
-import java.util.Scanner;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.Collections;
-import java.util.TreeMap;
+import java.util.*;
 
 class Menu implements Global {
 
 	static MenuPrints out;
 	static Map<String, Double> order = new HashMap<>();
 
-	// /*
-	//  * This function is used to find the item that the user wants
-	//  * using the category and the price
-	//  */
     public static <K, V> K getItemByPrice(Map<K, V> map, V value) {
-        for (Map.Entry<K, V> entry : map.entrySet()) {
-            if (value.equals(entry.getValue())) {
+        for (Map.Entry<K, V> entry : map.entrySet())
+            if (value.equals(entry.getValue()))
                 return entry.getKey();
-            }
-        }
-        return null; // Value not found in the map
+        return null;
     }
 
 	public static <K, V extends Comparable<? super V>> Map<K, V> sortByPrice(Map<K, V> map) {
@@ -30,14 +17,9 @@ class Menu implements Global {
 	
 		List<Map.Entry<K, V>> list = new ArrayList<>(copiedMap.entrySet());
 		list.sort(Map.Entry.comparingByValue());
-	
-		// for (Map.Entry<K, V> entry : list) {
-		// 	System.out.println("list: " + entry.getKey() + " " + entry.getValue());
-		// }
 		Map<K, V> sortedMap = new LinkedHashMap<>();
 		for (Map.Entry<K, V> entry : list)
             sortedMap.put(entry.getKey(), entry.getValue());
-	
 		return sortedMap;
 	}	
 
@@ -121,103 +103,72 @@ class Menu implements Global {
 	{
 		Scanner scanner = new Scanner(System.in);
 		int choice = 0;
-		// Map <String, Double> order = new HashMap<String, Double>();
-	    // String order [] = new String[1];
 	    while (true) {
 			out.printOperations();
 		    choice = scanner.nextInt();
 			while (true)
 			{
-				System.out.println("");
-				if (choice == 1)
-					System.out.println("- What is the name of the Food you want to Add ?");
-				else if (choice == 2)
-					System.out.println("- What is the name of the Food you want to Remove ?");
-				// else if (choice == 3)
-				// {
-				// 	if (order.isEmpty())
-				// 	{
-				// 		System.out.println("Your Order is Empty");
-				// 		break ;
-				// 	}
-				// 	System.out.println("The total price is " + checkout(order) + "AED");
-				// 	System.out.println("Thank you for your order");
-				// 	return ;
-				// }
-			// 	else if (choice == 4)
-			// 	{
-			// 		System.out.println("The order has been canceled");
-			// 		order = new String[1];
-			// 		return ;
-			// 	}
-			// 	else
-			// 	{
-			// 		System.out.println("Sorry This Service Doesn't Exist please Try Agian !");
-			// 		return;
-			// 	}
-				System.out.println("- Type <Done> without <> when you're done !");
+				System.out.println(choice == 3 ? "" : "\n" + messages.get(MsgTag.values()[choice > 4 || choice < 1 ? 4 : choice - 1]));
+				if (choice > 2 || choice < 1)
+				{
+					System.out.println(choice);
+					if (choice == 3)
+					{
+						if (order.isEmpty())
+							System.out.println("\n" + messages.get(MsgTag.MESSAGE_EMPTY_ORDER));
+						else
+							System.out.println("The total price is " + checkout() + "AED");
+					}
+					order.clear();
+					return;
+				}
+				System.out.println(messages.get(MsgTag.MESSAGE_TYPE_DONE));
 				String userAnswer = scanner.next();
 				if (userAnswer.compareTo("Done") == 0)
 					break ;
 				else if (findPrice(userAnswer) == 0.0)
-					System.out.println("---> Element not found please try again");
+					System.out.println("\n" + messages.get(MsgTag.MESSAGE_ELEMENT_NOTFOUND));
 				else
-				{
-					if (choice == 1)
-					{
-						if (order.containsKey(userAnswer))
-						{
-							System.out.println("---> Element already exists");
-							continue ;
-						}
-						order.put(userAnswer, findPrice(userAnswer));
-						System.out.println("---> Element have been added successfuly");
-					}
-					if (choice == 2)
-					{
-						order.remove(userAnswer);
-						System.out.println("---> Element have been removed successfuly");
-					}
-				}
+					if (! modifyOrder(choice, userAnswer))
+						continue ;
 				out.printOrder(order);
 			}
 		}
 	}
 
+	public static boolean modifyOrder(int choice, String userAnswer)
+	{
+		String modify = choice == 1 ? "add" : "remove";
+		if (modify == "add")
+		{
+			if (order.containsKey(userAnswer))
+			{
+				System.out.println("\n" + messages.get(MsgTag.MESSAGE_ELEMENT_LISTEXIST));
+				return false ;
+			}
+			order.put(userAnswer, findPrice(userAnswer));
+		}
+		if (modify == "remove")
+		{
+			if (!order.containsKey(userAnswer))
+			{
+				System.out.println("\n" + messages.get(MsgTag.MESSAGE_ELEMENT_NOT_LISTEXIST));
+				return false ;
+			}
+			order.remove(userAnswer);
+		}
+		System.out.println("\n---> Element have been " + modify + "ed successfuly");
+		return true;
+	}
+
 	public static double findPrice(String element)
 	{
 		for (Map.Entry<Option, Map<String, Double>> entry : Menu.entrySet())
-		{
 			for (Map.Entry<String, Double> entry2 : entry.getValue().entrySet())
-			{
 				if (entry2.getKey().compareTo(element) == 0)
 					return entry2.getValue() ;
-			}
-		}
 		return 0.0;
 	}
-
-	/*
-	 * this function is used to remove an item from the order
-	 * and to return the new order
-	 */				
-	// public static String[] removeItem(String []order, String element)
-	// {
-	// 	String [] newOrder = new String [order.length - 1];
-	// 	int i = -1;
-	// 	int j = -1;
-	// 	if (order.length == 1 && order[0] == null)
-	// 	{
-	// 		System.out.println("No thing to remove");
-	// 		return (order);
-	// 	}
-	// 	while (++i < order.length)
-	// 	{
-	// 		if (order[i].compareTo(element) != 0)
-	// 			newOrder[++j] = order[i];
-	// 	}
-	// 	return (newOrder);
-	// }
 
 	/*
 	 * This function is used to checkout and to return the total price
@@ -230,24 +181,4 @@ class Menu implements Global {
 			total += entry.getValue();
 		return (total);
 	}
-
-	/*
-	 * This function is used to Add an item to the order
-	 * and to return the new order based on the old order
-	 */
-	// public static String[] addItem(String []order, String newElement)
-	// {
-	// 	String [] newOrder = new String [order.length + 1];
-	// 	int i = -1;
-	// 	if (order.length == 1 && order[0] == null)
-	// 	{
-	// 		order[0] = newElement;
-	// 		return (order);
-	// 	}
-	// 	while (++i < order.length)
-	// 		newOrder[i] = order[i];
-	// 	newOrder[i] = newElement;
-	// 	return (newOrder);
-
-	// }
 }

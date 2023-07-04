@@ -41,7 +41,7 @@ public class MenuPrints implements Global {
 	    	System.out.println("No order list yet");
 	    	return ;
 	    }
-	    System.out.println("The Order now is ");
+	    System.out.println("The Order now is: \n");
 		for (Map.Entry<String, Double> entry : order.entrySet())
 			System.out.println(entry.getKey() + " " + entry.getValue() + " AED");
 	    System.out.println("");
