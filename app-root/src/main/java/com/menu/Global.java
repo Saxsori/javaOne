@@ -1,3 +1,5 @@
+package com.menu;
+
 import java.util.Map;
 
 public interface Global 

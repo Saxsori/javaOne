@@ -1,3 +1,8 @@
+package com;
+
+import com.menu.Global;
+import com.menu.Menu;
+
 import java.util.Scanner;
 import java.util.Arrays;
 

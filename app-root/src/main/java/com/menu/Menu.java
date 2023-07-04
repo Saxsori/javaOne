@@ -1,8 +1,11 @@
+package com.menu;
+import com.menu.*;
+
 import java.util.*;
 
-class Menu implements Global {
+public class Menu implements Global {
 
-	static MenuPrints out;
+	public static MenuPrints out;
 	static Map<String, Double> order = new HashMap<>();
 
     public static <K, V> K getItemByPrice(Map<K, V> map, V value) {

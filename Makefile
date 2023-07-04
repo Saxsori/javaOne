@@ -6,7 +6,7 @@ CONTAINER_NAME = javaone
 
 dev:
 	docker build -t $(IMAGE_NAME_DEV) --target development .
-	docker run -it -d --name $(CONTAINER_NAME) -v $(PWD)/src:/JavaOne $(IMAGE_NAME_DEV)
+	docker run -it -d --name $(CONTAINER_NAME) -v $(PWD)/app-root:/JavaOne $(IMAGE_NAME_DEV)
 	docker exec -it javaone /bin/sh
 
 run:

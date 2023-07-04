@@ -1,3 +1,6 @@
+package com.menu;
+
+import com.menu.Global;
 import java.util.Map;
 
 public class MenuPrints implements Global {

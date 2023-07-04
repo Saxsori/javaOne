@@ -12,11 +12,16 @@ JAVA = java
 
 JAR = jar
 
-SRC_DIR = ./App
+# SRC_DIR = ./App
+
+SRC_DIR := src/main/java
+
 
 OUT_DIR = ./bin
 
-SOURCES = $(wildcard $(SRC_DIR)/*.java)
+# SOURCES = $(wildcard $(SRC_DIR)/*.java)
+
+SOURCES := $(shell find $(SRC_DIR) -name '*.java')
 
 # pattern substitution to generate a list of class files from the list of Java sources files
 # modifying each dource file from the SOURCES list by replacing the .java extension with .class
@@ -33,7 +38,7 @@ MANIFEST_FILE = Manifest.txt
 all: $(JAR_FILE)
 
 $(MANIFEST_FILE):
-	echo "Main-Class: Main" > $(MANIFEST_FILE)
+	echo "Main-Class: com.Main" > $(MANIFEST_FILE)
 
 $(OUT_DIR):
 	mkdir -p $(OUT_DIR)
