@@ -5,7 +5,7 @@ This is my very first Java project! I recently completed a showcase project for 
 However, now I'm determined to take this project further and delve deeper into Java. I want to explore object-oriented programming (OOP) in Java, building upon my existing knowledge of OOP, as well as advanced Java concepts, and even create my own simple compiling environment. This will be my initial foray into the language, and I'm excited to begin a genuine Java project. I plan to embark on more Java projects in the future, but let's start with this one—JavaOne!
 
 
-## Java Compiling Environment
+## ⚒️ Java Compiling Environment
 
 Ever had trouble installing Java packages and dealing with annoying errors on your local machine? YAH Fear not! That's why I had to go with Makefile and Dockerfile combo!
 
@@ -20,7 +20,7 @@ Instead of creating separate Dockerfiles for production and development, I've us
 I didn't do much on it, just to build and run the images with a few commands like ``make dev`` for development and ``make run`` for production, I can effortlessly manage and switch between environments.
 
 
-## Java Compilation Process
+## 🚧 Java Compilation Process
 
 ### ⚙️ Strict OOP Methodology
 Java is known for being a strict object-oriented programming (OOP) language, and this is evident in how its compiler operates. The Java compiler is quite particular about the structure of the files it accepts. It requires files to be organized in a way that includes classes, and when it compiles these files, it converts them into the ``.class`` file extension.
@@ -79,11 +79,11 @@ The reason behind the name was that, as has been mentioned before it acts as an 
 The name kinda makes sense now, JVM takes care of translating Java bytecode to appropriate instructions and system calls for the underlying hardware and OS, which makes ``Write once, run anywhere`` real. 
 
 
-## OOP Concepts Used
+## 🧩 OOP Concepts Used
 In this simple project, I've embraced basic inheritance and the versatile Template data structure. But that's not all! Whenever I stumble upon a new OOP concept in Java, I dive right in. This project will be my playground, where I can freely explore and experiment with Java. It's my go-to place whenever I want to venture into the realm of Java and try out new things.
 
 
-## Resources
+## 📍Resources
 - [How JVM Works – JVM Architecture?](https://www.geeksforgeeks.org/jvm-works-jvm-architecture/)
 - [What is JVM?](https://www.infoworld.com/article/3272244/what-is-the-jvm-introducing-the-java-virtual-machine.html#:~:text=The%20JVM%20is%20a%20virtual,your%20program%20is%20running%20on.)
 - [Java Virtual Machine](https://www.w3schools.in/java/java-virtual-machine)
