@@ -4,7 +4,7 @@ RUN apk update && apk add openjdk11 make
 
 RUN mkdir -p /JavaOne
 
-COPY ./app-root /JavaOne
+# COPY ./app-root /JavaOne
 
 WORKDIR /JavaOne
 
@@ -17,7 +17,9 @@ RUN apk update && apk add openjdk11 make
 
 RUN mkdir -p /JavaOne
 
-COPY --from=development /JavaOne /JavaOne
+# COPY --from=development /JavaOne /JavaOne
+
+COPY ./app-root /JavaOne
 
 WORKDIR /JavaOne
 
