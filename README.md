@@ -5,12 +5,24 @@ This is my very first Java project! I recently completed a showcase project for 
 However, now I'm determined to take this project further and delve deeper into Java. I want to explore object-oriented programming (OOP) in Java, building upon my existing knowledge of OOP, as well as advanced Java concepts, and even create my own simple compiling environment. This will be my initial foray into the language, and I'm excited to begin a genuine Java project. I plan to embark on more Java projects in the future, but let's start with this one—JavaOne!
 
 
-## Compiling and Development Environment
+## Java Compiling Environment
+
+Ever had trouble installing Java packages and dealing with annoying errors on your local machine? YAH Fear not! That's why I had to go with Makefile and Dockerfile combo!
+
+I wanted to create separate environments for running and developing my simple Java project without the headaches. By using Docker, we can avoid installing Java dependencies on our local machine and sidestep potential compatibility issues.
+
+Lemme quickly introduce it:
+
+### 🐳 The Dockerfile
+Instead of creating separate Dockerfiles for production and development, I've used a single Dockerfile and implemented a multi-stage build approach to make things easier to manage. This way, we can handle both development and production environments within a single file. You can read more about that in [docker docs](https://docs.docker.com/build/building/multi-stage/).
+
+### 📜 The Makefile
+I didn't do much on it, just to build and run the images with a few commands like ``make dev`` for development and ``make run`` for production, I can effortlessly manage and switch between environments.
 
 
 ## Java Compilation Process
 
-### Strict OOP Methodology
+### ⚙️ Strict OOP Methodology
 Java is known for being a strict object-oriented programming (OOP) language, and this is evident in how its compiler operates. The Java compiler is quite particular about the structure of the files it accepts. It requires files to be organized in a way that includes classes, and when it compiles these files, it converts them into the ``.class`` file extension.
 
 This strictness in adhering to OOP principles is essential in the context of Java. It ensures that the code is organized and follows the principles of encapsulation, inheritance, 
@@ -37,7 +49,7 @@ The ``jar`` command is our go-to tool for creating JAR files. The ``c`` option t
 
 By the way, let's talk about the manifest file! It's an important part of our JAR file. Think of it as an ID card that introduces our Java application. It contains vital information, like which class holds the main function, which is the entry of the program. In this case, the content of a Manifest.txt file should be: ``Main-Class: Main``. This ensures that when we run the JAR file, the correct class will be launched as the entry point of our application.
 
-### Java Virtual Machine (JVM)
+### 🖥️ Java Virtual Machine (JVM)
 Now Let's Go a bit deeper, As has been mentioned before, in simple cases, like standalone programs, java does have a two-step compilation process to run our code. 
 
 First, the ``javac`` command compiles our Java source code into bytecode, a low-level representation of the program. Then comes the exciting part! The Java Virtual Machine (JVM) enters the stage when we use the ``java`` command. The JVM is like a virtual computer that executes our bytecode, translating it into machine-specific instructions on the fly. This allows Java programs to be platform-independent, running on any system with a compatible JVM. 
@@ -68,5 +80,8 @@ The name kinda makes sense now, JVM takes care of translating Java bytecode to a
 
 
 ## OOP Concepts Used
+In this simple project, I've embraced basic inheritance and the versatile Template data structure. But that's not all! Whenever I stumble upon a new OOP concept in Java, I dive right in. This project will be my playground, where I can freely explore and experiment with Java. It's my go-to place whenever I want to venture into the realm of Java and try out new things.
+
+
 
 
