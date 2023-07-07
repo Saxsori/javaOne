@@ -83,5 +83,16 @@ The name kinda makes sense now, JVM takes care of translating Java bytecode to a
 In this simple project, I've embraced basic inheritance and the versatile Template data structure. But that's not all! Whenever I stumble upon a new OOP concept in Java, I dive right in. This project will be my playground, where I can freely explore and experiment with Java. It's my go-to place whenever I want to venture into the realm of Java and try out new things.
 
 
+## Resources
+- [How JVM Works – JVM Architecture?](https://www.geeksforgeeks.org/jvm-works-jvm-architecture/)
+- [What is JVM?](https://www.infoworld.com/article/3272244/what-is-the-jvm-introducing-the-java-virtual-machine.html#:~:text=The%20JVM%20is%20a%20virtual,your%20program%20is%20running%20on.)
+- [Java Virtual Machine](https://www.w3schools.in/java/java-virtual-machine)
+- [Java and Makefiles](https://www.cs.swarthmore.edu/~newhall/unixhelp/javamakefiles.html)
+- [Minimalistic Java Makefile](https://gist.github.com/the-mikedavis/23a4c0fc4e2338c5535c3b2245257c83)
+- [Making a Java Makefile](https://stackoverflow.com/questions/29184999/making-a-java-makefile)
+- [Compiling Java custom packages](https://www.webucator.com/article/how-to-compile-packages-in-java/)
+- [Docker Multi-stage builds](https://docs.docker.com/build/building/multi-stage/)
+
+
 
 
