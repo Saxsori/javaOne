@@ -5,7 +5,7 @@ This is my very first Java project! I recently completed a showcase project for 
 However, now I'm determined to take this project further and delve deeper into Java. I want to explore object-oriented programming (OOP) in Java, building upon my existing knowledge of OOP, as well as advanced Java concepts, and even create my own simple compiling environment. This will be my initial foray into the language, and I'm excited to begin a genuine Java project. I plan to embark on more Java projects in the future, but let's start with this one—JavaOne!
 
 
-## ⚒️ Java Compiling Environment
+## 🪄 Java Compiling Environment
 
 Ever had trouble installing Java packages and dealing with annoying errors on your local machine? YAH Fear not! That's why I had to go with Makefile and Dockerfile combo!
 
@@ -16,7 +16,7 @@ Lemme quickly introduce it:
 ### 🐳 The Dockerfile
 Instead of creating separate Dockerfiles for production and development, I've used a single Dockerfile and implemented a multi-stage build approach to make things easier to manage. This way, we can handle both development and production environments within a single file. You can read more about that in [docker docs](https://docs.docker.com/build/building/multi-stage/).
 
-### 📜 The Makefile
+### 📄 The Makefile
 I didn't do much on it, just to build and run the images with a few commands like ``make dev`` for development and ``make run`` for production, I can effortlessly manage and switch between environments.
 
 
@@ -33,14 +33,14 @@ Now you may wonder, Why this strict OOP style does even matter, mixing both proc
 Well, Java's commitment to OOP ensures code organization, modularity, and maintainability. Making it easier to update, test and maintain the classes for big applications. Plus, this strictness fuels advanced concepts like frameworks, libraries, and dependency injection, helping you build flexible, scalable, and robust applications.
 
 
-### Simple Compile
+### 🔨 Simple Compile
 To compile a Java program, we use the ``javac`` command followed by the name of the Java source file. ``javac Main.java``, the command compiles the Java source code into bytecode, represented by the ``.class`` files. i.e. ``Main.class``.
 
 After compilation, we can execute the program using the ``java`` command followed by the name of the class containing the main method. For instance, if our class with the main method is called Main, we would run ``java Main`` to execute the program.
 
 And that's it. Can't be further complicated, but now ..
 
-### Large Project Compile
+### 🛠️ Large Project Compile
 Working on larger Java projects with multiple files, it's common to create a JAR (Java ARchive) file. Think of it as a cool bundle that holds all our compiled ``.class`` files and other essential resources together in one place. It's like packing everything up for convenience!
 
 To create the JAR file named myproject.jar and include all the ``.class`` files in the current directory, we can run the following command: `` jar cfm myproject.jar Manifest.txt -C bin . ``
